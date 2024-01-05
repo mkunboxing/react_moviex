@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchFilteredMovies, fetchMoreMovies } from './Redux/moviesSlice';
 import MovieCard from './components/MovieCards';
 import './App.css';
-import { Select, Button, Flex } from 'antd';
-
+import { Select, Button } from 'antd';
 
 const { Option } = Select;
 
@@ -17,33 +16,53 @@ const App = () => {
   const currentFilter = useSelector(state => state.movies.currentFilter);
   const bottomBoundaryRef = useRef();
 
-  const [filter, setFilter] = useState('now_playing');
+  const [filter, setFilter] = useState(() => {
+    return localStorage.getItem('filter') || 'now_playing';
+  });
+
+  const [page, setPage] = useState(() => {
+    return parseInt(localStorage.getItem('currentPage')) || 1;
+  });
 
   useEffect(() => {
     dispatch(fetchFilteredMovies({ filter }));
-    setFilter(currentFilter); // Set local filter state to the current filter from Redux
+    localStorage.setItem('filter', filter);
+    setPage(1); // Reset page on filter change
   }, [dispatch, filter]);
+
+  useEffect(() => {
+    if (page > 1) {
+      dispatch(fetchMoreMovies({ filter: currentFilter, page }));
+    }
+  }, [dispatch, currentFilter, page]);
 
   const handleFilterChange = value => {
     setFilter(value);
   };
 
   const handleLoadMore = () => {
-    dispatch(fetchMoreMovies({ filter: currentFilter, page: currentPage + 1 }));
+    setPage(prevPage => prevPage + 1);
   };
 
+  useEffect(() => {
+    localStorage.setItem('currentPage', page);
+  }, [page]);
+
   return (
-    <div className="App">
+    <div className="pp">
       <div className="sticky-top">
-        <h1 style={{ textAlign: 'center' }}>My IMDb Clone</h1>
-        <Select defaultValue="now_playing" style={{ width: 500, marginBottom:10, marginLeft:500}} onChange={handleFilterChange}>
+        <h1>Movie X</h1>
+        <div className='select-box'>
+        <Select  style={{width:150}} defaultValue={filter}  onChange={handleFilterChange}>
           <Option value="now_playing">Now Playing</Option>
           <Option value="popular">Popular</Option>
           <Option value="top_rated">Top Rated</Option>
           <Option value="upcoming">Upcoming</Option>
-          <Option value="trending">Trending</Option>
+          {/* <Option value="trending">Trending</Option> */}
         </Select>
-        <p style={{ textAlign: 'center', marginBottom: '10px' }}>Displayed movies count: {movies.length}</p>
+        </div>
+       
+        <p style={{marginBottom:30 }}>Movies count: {movies.length}</p>
       </div>
       {status === 'loading' && <p>Loading...</p>}
       {status === 'failed' && <p>Error: {error}</p>}
@@ -55,10 +74,9 @@ const App = () => {
           </React.Fragment>
         ))}
       </div>
-      <Button onClick={handleLoadMore} type="primary" style={{ marginBottom: '20px' }}>
+      <Button onClick={handleLoadMore} type="primary" style={{  marginBottom: '20px' }}>
         Load More
       </Button>
-      
     </div>
   );
 };

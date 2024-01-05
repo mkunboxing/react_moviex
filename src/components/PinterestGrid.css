@@ -1,15 +1,36 @@
 /* Default styles for the grid */
+
+.App{
+  display: flex;
+  flex-direction: column;
+  
+}
 .sticky-top {
   position: sticky;
   top: 0;
-  background-color: rgb(255, 130, 130);
+  background-color: rgb(251, 238, 94);
   padding: 10px;
   z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
   
 }
 .sticky-top h1{
+  margin-top: 20px;
   margin-bottom: 10px;
 }
+/* .select-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  text-align: center;
+  margin: 10px;
+  background-color: aliceblue;
+} */
 
 .pinterest-grid {
     column-gap: 16px;
@@ -34,15 +55,6 @@
     margin-top: 8px;
   }
   
-  /* Different card colors */
-  .grid-item:nth-child(odd) {
-    background-color: #0966f1;
-  }
-  
-  .grid-item:nth-child(even) {
-    background-color: #eb3232; 
-  }
-  
   /* Media queries for responsive layout */
   @media screen and (min-width: 1201px) {
     .pinterest-grid {
@@ -52,7 +64,7 @@
   
   @media screen and (max-width: 1200px) {
     .pinterest-grid {
-      column-count: 4;
+      column-count: 3;
     }
   }
   
