@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { voteMovie } from '../Redux/moviesSlice';
 import { Card, Button } from 'antd';
 import './PinterestGrid.css'
+import { LikeOutlined  } from '@ant-design/icons';
 
 const { Meta } = Card;
 
@@ -22,6 +23,7 @@ const MovieCard = ({ movie }) => {
             >
                 <Meta title={movie.title} description="www.instagram.com" />
                 <Button onClick={handleVote}>Vote</Button> {/* Use Ant Design Button */}
+                <LikeOutlined />
             </Card>
         </div>
     );

@@ -1,57 +1,70 @@
 /* Default styles for the grid */
+.sticky-top {
+  position: sticky;
+  top: 0;
+  background-color: rgb(255, 130, 130);
+  padding: 10px;
+  z-index: 1000;
+  
+}
+.sticky-top h1{
+  margin-bottom: 10px;
+}
+
 .pinterest-grid {
-    column-gap: 16px; /* Set the gap between columns */
+    column-gap: 16px;
+    margin: 20px; 
   }
   
   .grid-item {
-    break-inside: avoid; /* Avoid breaking within the grid item */
-    margin-bottom: 16px; /* Adjust spacing between grid items */
-    background-color: #fff; /* Default card background color */
-    border-radius: 8px; /* Add border radius for a smoother look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on hover */
+    break-inside: avoid; 
+    margin-bottom: 16px; 
+    background-color: #fff; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
   }
   
   .grid-item:hover {
-    transform: translateY(-5px); /* Hover effect: slightly lift the card */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Darken the shadow on hover */
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
   }
   
   .grid-item p {
-    margin-top: 8px; /* Add margin to the paragraph */
+    margin-top: 8px;
   }
   
   /* Different card colors */
   .grid-item:nth-child(odd) {
-    background-color: #0966f1; /* Lighter background color for odd cards */
+    background-color: #0966f1;
   }
   
   .grid-item:nth-child(even) {
-    background-color: #eb3232; /* Slightly darker background color for even cards */
+    background-color: #eb3232; 
   }
   
   /* Media queries for responsive layout */
   @media screen and (min-width: 1201px) {
     .pinterest-grid {
-      column-count: 5; /* For screens wider than 1200px, display 4 columns */
+      column-count: 5; 
     }
   }
   
   @media screen and (max-width: 1200px) {
     .pinterest-grid {
-      column-count: 4; /* For screens up to 1200px width, display 3 columns */
+      column-count: 4;
     }
   }
   
   @media screen and (max-width: 800px) {
     .pinterest-grid {
-      column-count: 3; /* For screens up to 800px width, display 2 columns */
+      column-count: 3; 
     }
   }
   
   @media screen and (max-width: 500px) {
     .pinterest-grid {
-      column-count: 2; /* For screens up to 500px width, display 1 column */
+      column-count: 2; 
     }
   }
   
