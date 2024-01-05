@@ -1,0 +1,57 @@
+/* Default styles for the grid */
+.pinterest-grid {
+    column-gap: 16px; /* Set the gap between columns */
+  }
+  
+  .grid-item {
+    break-inside: avoid; /* Avoid breaking within the grid item */
+    margin-bottom: 16px; /* Adjust spacing between grid items */
+    background-color: #fff; /* Default card background color */
+    border-radius: 8px; /* Add border radius for a smoother look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on hover */
+  }
+  
+  .grid-item:hover {
+    transform: translateY(-5px); /* Hover effect: slightly lift the card */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Darken the shadow on hover */
+  }
+  
+  .grid-item p {
+    margin-top: 8px; /* Add margin to the paragraph */
+  }
+  
+  /* Different card colors */
+  .grid-item:nth-child(odd) {
+    background-color: #0966f1; /* Lighter background color for odd cards */
+  }
+  
+  .grid-item:nth-child(even) {
+    background-color: #eb3232; /* Slightly darker background color for even cards */
+  }
+  
+  /* Media queries for responsive layout */
+  @media screen and (min-width: 1201px) {
+    .pinterest-grid {
+      column-count: 5; /* For screens wider than 1200px, display 4 columns */
+    }
+  }
+  
+  @media screen and (max-width: 1200px) {
+    .pinterest-grid {
+      column-count: 4; /* For screens up to 1200px width, display 3 columns */
+    }
+  }
+  
+  @media screen and (max-width: 800px) {
+    .pinterest-grid {
+      column-count: 3; /* For screens up to 800px width, display 2 columns */
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+    .pinterest-grid {
+      column-count: 2; /* For screens up to 500px width, display 1 column */
+    }
+  }
+  
