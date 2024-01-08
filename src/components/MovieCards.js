@@ -29,7 +29,7 @@ const MovieCard = ({ movie }) => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json;charset=utf-8',
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YWZjNjBmNzU3ZWI1NzJmNWIxZGIyODNkNjIzYjNhMCIsInN1YiI6IjY1OTcxMmMzMGU2NGFmMmQ5NDhjMTkwZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.3_5XTW1laCHI3QM1LGIT0RPaI4ilS8MpiwEzNbBjSg0', // Replace with your access token
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YWZjNjBmNzU3ZWI1NzJmNWIxZGIyODNkNjIzYjNhMCIsInN1YiI6IjY1OTcxMmMzMGU2NGFmMmQ5NDhjMTkwZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.3_5XTW1laCHI3QM1LGIT0RPaI4ilS8MpiwEzNbBjSg0', // bhai khud ka use krlo thanks
           },
           body: JSON.stringify({ value: userVote }), // Use the user's vote value here
         };
