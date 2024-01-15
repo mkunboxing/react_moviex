@@ -51,7 +51,7 @@ const App = () => {
   return (
     <div className="pp">
       <div className="sticky-top">
-        <h1>Movie X</h1>
+        <h1>MK Movie X</h1>
         <div className='select-box'>
         <Select  style={{width:150}} defaultValue={filter}  onChange={handleFilterChange}>
           <Option value="now_playing">Now Playing</Option>

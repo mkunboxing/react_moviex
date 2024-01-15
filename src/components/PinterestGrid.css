@@ -8,7 +8,7 @@
 .sticky-top {
   position: sticky;
   top: 0;
-  background-color: rgb(251, 238, 94);
+  background-color: rgb(173, 173, 173);
   padding: 10px;
   z-index: 1000;
   display: flex;
